@@ -74,14 +74,14 @@ Extend the previous Python program to include tuples. Now, in addition to creati
 input_numbers = input("Enter a series of space-separated integers: ")
 
 # Convert Input:
+list_of_numbers = list(map(int,input_numbers.split()))
 
 
 # Sorting:
-
+numbers_list=sorted(list_of_numbers)
 
 # Print Output
 print("Sorted list:", numbers_list)
-print("Sorted tuple:", sorted_tuple)
 
 """5.
 Extend the previous Python program to demonstrate the manipulation of lists using the append(), insert(), and remove() functions, and to emphasize the immutability of tuples.
