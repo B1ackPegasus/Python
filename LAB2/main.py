@@ -205,28 +205,51 @@ input_numbers = input("Enter a series of space-separated integers: ")
 
 # Convert Input
 
-# Manipulate List
-# Append 10 to the list
-# Insert 20 at index 2
-# Remove the element 8
+numbers_list = list(map(int,input_numbers.split()))
+numbers_tuple = tuple(map(int,input_numbers.split()))
+
+# Modified list
+#append 10
+numbers_list.append(10)
+#insert 20 on index 2
+numbers_list.insert(2,20)
+#Remove 8 from the list
+numbers_list.remove(8)
 
 # Attempt to Modify Tuple (this will raise an error)
 try:
-    # Append 10 to the tuple
+    #   Append 10 to the tuple
+    numbers_tuple.append(10)
 except AttributeError:
     print("Tuples are immutable and cannot be modified.")
 
 # Set Operations
 # Union
+set1=set(numbers_tuple)
+set2={10,11,12}
+set_union = set1.union(set2)
 # Intersection
+set3={5,8}
+set_intersection=set1.intersection(set3)
 # Difference
+set4={5 ,2, 8, 1}
+set_difference=set1.difference(set4)
 
 # Dictionary Operations
-print("Original Dictionary:", numbers_dict)
-# Add a new key-value pair
-# Delete an existing key-value pair
+numbers_dict={}
+keys = list(map(int,input_numbers.split()))
+for i in keys:
+    numbers_dict[i]=i**2
 
-# Print Output
+print("Original Dictionary:", numbers_dict)
+
+
+# Add a new key-value pair
+numbers_dict[11]=121
+# Delete an existing key-value pair
+del numbers_dict[8]
+
+# Print Output 5 2 8 1 9
 print("Modified list:", numbers_list)
 print("Tuple remains unchanged:", numbers_tuple)
 print("Union of set:", set_union)
