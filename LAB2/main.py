@@ -519,7 +519,7 @@ with open("output.txt","r") as file:
 
 # Modify the content of the file
 with open("output.txt","a") as modify_file:
-    modify_file.write(f"The sum of integers in this file is:{suma}")
+    modify_file.write(f"The sum of integers in this file is: {suma}")
 
 """--------------------------------------------------------------------------------
 **Control Statements:**
@@ -578,8 +578,51 @@ These are fundamental constructs in Python programming that enable you to contro
 
   The program will generate the list of prime numbers up to 20, perform calculations, and write the results to 'prime_numbers.txt'.
 """
+with open("output.txt", "r") as file:
+    list = []
+    str = file.read()
+    str = str.replace("[", "").replace("]", "").replace("{", "").replace("}", "").replace("(", "").replace(")","").replace(":", "").replace(",", "").replace("\n", " ")
+    str = str.split(" ")
+    for i in str:
+        if i.isdigit():
+            list.append(int(i))
+    if len(list) == 0:
+        print("There are not numbers in file. It is impossible to find the largest number.")
+    else:
+        # largest_number
+        largest_number = sorted(list)[len(list) - 1]
+        print(f"The largest number is {largest_number}")
+        # all prime numbers
+        prime = True
+        prime_numbers = []
+        for number in range(2, largest_number):
+            for i in range(2, number):
+                if number % i == 0:
+                    prime = False
+            if prime:
+                prime_numbers.append(number)
+            prime = True
+        print(prime_numbers)
 
+        suma = 0
+        # sum of prime numbers
+        for i in prime_numbers:
+            suma += i
 
+        # largest and smallest prime  numbers  in range
+        largest_prime_number = prime_numbers[len(prime_numbers) - 1]
+        smallest_prime_number = prime_numbers[0]
+
+        # check if largest is prime
+        for num in range(2, largest_number):
+            if largest_number % num == 0:
+                print(f"The largest number {largest_number} is not prime")
+                break
+        with open("prime_numbers.txt", "w") as file_prime:
+            file_prime.write(f"{prime_numbers}\n")
+            file_prime.write(f"The suma of all prime numbers is {suma}\n")
+            file_prime.write(f"The largest prime number is {largest_prime_number}\n")
+            file_prime.write(f"The smallest prime number is {smallest_prime_number}")
 
 """10.
 In the final main.py file, leave the results from task 8 and 9, commit and push

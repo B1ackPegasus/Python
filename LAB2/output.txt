@@ -21,4 +21,4 @@ Set to Dictionary: {1: 1, 2: 4, 5: 25, 8: 64, 9: 81}
 Dictionary to List: [1, 2, 5, 9, 11]
 Dictionary to Tuple: (1, 2, 5, 9, 11)
 Dictionary to Set: {1, 2, 5, 9, 11}
-The sum of integers in this file is:2105
+The sum of integers in this file is: 2105
